@@ -1,0 +1,31 @@
+# ---- 公開しない下書き ----
+# 実務の詳細を含むため、public リポジトリには載せない
+PORTFOLIO_CONTENT.md
+
+# ---- ローカルのツール設定 ----
+.claude/
+.vscode/
+.idea/
+*.swp
+
+# ---- macOS ----
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# ---- 依存・ビルド成果物 ----
+node_modules/
+dist/
+build/
+.cache/
+
+# ---- 環境変数・認証情報 ----
+.env
+.env.*
+!.env.example
+*.pem
+
+# ---- ログ ----
+*.log
+npm-debug.log*
