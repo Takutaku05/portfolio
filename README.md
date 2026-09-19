@@ -4,21 +4,31 @@
 
 ## 動かす
 
-ローカルで開くだけなら `index.html` をブラウザにドラッグしても表示されますが、
-相対パスを実環境に合わせるため、簡易サーバー越しの確認を推奨します。
+依存関係をインストールし、Cloudflare Workers のローカル開発サーバーを起動します。
 
 ```bash
-python3 -m http.server 8000
+npm install
+npm run dev
 ```
 
-`http://localhost:8000` を開きます。
+`http://localhost:8787` を開きます。
 
 ## 構成
 
 ```
-index.html              1ページ完結のマークアップ
-assets/css/style.css    デザイントークン → 部品 → レスポンシブ の順で記述
-assets/js/main.js       メニュー開閉 / 現在地表示 / 制作物のしぼりこみ / マーキー
+public/index.html              1ページ完結のマークアップ
+public/assets/css/style.css    デザイントークン → 部品 → レスポンシブ の順で記述
+public/assets/js/main.js       メニュー開閉 / 現在地表示 / 制作物のしぼりこみ / マーキー
+wrangler.jsonc                 Workers Static Assets のデプロイ設定
+```
+
+## デプロイ
+
+Cloudflare Workers Static Assets を利用します。
+
+```bash
+npm run check
+npm run deploy
 ```
 
 ## セクション
@@ -63,6 +73,6 @@ assets/js/main.js       メニュー開閉 / 現在地表示 / 制作物のし�
 
 ## 未対応
 
-- OGP 画像 (`assets/img/ogp.png`) は未作成。`<meta property="og:image">` は参照先がない状態
+- OGP 画像 (`public/assets/img/ogp.png`) は未作成。`<meta property="og:image">` は参照先がない状態
 - favicon 未設定
 - 制作物のサムネイル画像は未配置（現在はカードにアイコンのみ）
